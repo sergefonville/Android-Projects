@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         this.submitOrderButton = (Button) findViewById(R.id.submit_order_button);
         this.newCustomerButton = (Button) findViewById(R.id.new_customer_button);
         displayQuantity();
-
+        
     }
 
     @Override
