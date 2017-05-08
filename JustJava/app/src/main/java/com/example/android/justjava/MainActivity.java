@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -30,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout orderSummaryLayout;
     private Button submitOrderButton;
     private Button newCustomerButton;
+    private TextView hasWhippedCreamTextView;
+    private CheckBox whippedCreamCheckBox;
+
+    private boolean hasWhippedCream = false;
     private int quantity = 1;
 
     @Override
@@ -41,11 +46,13 @@ public class MainActivity extends AppCompatActivity {
         this.clientNameSummaryTextView = (TextView) findViewById(R.id.client_name_summary_text_view);
         this.quantitySummaryTextView = (TextView) findViewById(R.id.quantity_summary_text_view);
         this.thankYouSummaryTextView = (TextView) findViewById(R.id.thank_you_summary_text_view);
+        this.hasWhippedCreamTextView = (TextView) findViewById(R.id.has_whipped_cream_text_view);
         this.orderSummaryLayout = (LinearLayout) findViewById(R.id.order_summary_layout);
         this.submitOrderButton = (Button) findViewById(R.id.submit_order_button);
         this.newCustomerButton = (Button) findViewById(R.id.new_customer_button);
+        this.whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
         displayQuantity();
-        
+
     }
 
     @Override
@@ -97,6 +104,13 @@ public class MainActivity extends AppCompatActivity {
         this.quantitySummaryTextView.setText("Quantity: "+ this.quantityTextView.getText().toString());
         this.priceSummaryTextView.setText("Total: " + DecimalFormat.getCurrencyInstance().format(this.calculatePrice()));
         this.thankYouSummaryTextView.setText("Thank you!");
+        this.hasWhippedCreamTextView.setVisibility(View.GONE);
+        if(this.whippedCreamCheckBox.isChecked()) {
+            this.hasWhippedCreamTextView.setText("With Whipped Cream");
+            this.hasWhippedCreamTextView.setVisibility(View.VISIBLE);
+        }
+        else
+            this.hasWhippedCreamTextView.setText("");
         this.orderSummaryLayout.setVisibility(View.VISIBLE);
         this.submitOrderButton.setVisibility(View.GONE);
         this.newCustomerButton.setVisibility(View.VISIBLE);

@@ -9,17 +9,33 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp"
     tools:context=".MainActivity">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Toppings"
+        android:textAllCaps="true" />
+
+    <CheckBox
+        android:id="@+id/whipped_cream_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:paddingLeft="24dp"
+        android:text="Whipped Cream"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Quantity"
         android:textAllCaps="true" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
 
         <Button
             android:id="@+id/decrease_quantity_button"
@@ -51,8 +67,8 @@
         android:id="@+id/order_summary_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
@@ -66,6 +82,12 @@
             android:id="@+id/client_name_summary_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/has_whipped_cream_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/quantity_summary_text_view"
@@ -85,20 +107,19 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/submit_order_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:onClick="submitOrder"
         android:text="Order"
-        android:visibility="visible"
-        android:id="@+id/submit_order_button"/>
+        android:visibility="visible" />
+
     <Button
+        android:id="@+id/new_customer_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:onClick="newCustomer"
         android:text="New Customer"
-        android:visibility="gone"
-        android:id="@+id/new_customer_button"/>
+        android:visibility="gone" />
 
 </LinearLayout>
